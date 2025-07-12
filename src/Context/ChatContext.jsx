@@ -14,6 +14,10 @@ export const ChatProvider = ({ children }) => {
   const senderId = localStorage.getItem("senderId");
   const receiverId = localStorage.getItem("receiverId");
   const username = localStorage.getItem("receiverUserName");
+// search bar code 
+    const [searchValue,setsearchValue]=useState('');
+
+// search bar code end
 
   useEffect(() => {
     socket.emit("check_user_status", receiverId);
@@ -94,6 +98,8 @@ export const ChatProvider = ({ children }) => {
         sendMessage,
         deleteMsgForEveryone,
         deleteMsgForMe,
+        setsearchValue,
+        searchValue
       }}
     >
       {children}

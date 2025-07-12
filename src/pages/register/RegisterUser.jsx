@@ -21,20 +21,26 @@ function RegisterUser() {
         }
         try{
           const response=  await axios.post(`${import.meta.env.VITE_API_URL}/chatApp/register`,formData,)
-          console.log("server response",response.data);
-          console.log("server id",response.data.response._id );
+          // console.log("server response",response.data);
+          // console.log("server id",response.data.response._id );
           const senderId = response.data.response._id;
           const senderUsername=response.data.response.username;
           Socket.emit('register',senderId)
           localStorage.setItem('senderId',senderId);
           localStorage.setItem('senderUsername',senderUsername);
+          
+
+          const token = response.data.token
+          // console.log(token)
+
+          localStorage.setItem('token',token)
 
           setusername('');
 
           
           setemail('');
           setpassword('');
-          navigate('/userlist')
+          navigate('/home')
 
         }catch(err){
             console.log(err)

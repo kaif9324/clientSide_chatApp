@@ -14,7 +14,7 @@ function LoginUser() {
   const [passwordError, setPasswordError] = useState("");
 
   // submit handler
-  console.log(`${import.meta.env.VITE_API_URL}/chatApp/login`);
+
 
   const login_handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ function LoginUser() {
         `${import.meta.env.VITE_API_URL}/chatApp/login`,
         login_form
       );
-      console.log(response)
+    
       const token = response.data.token
       localStorage.setItem("token", response.data.token);
       socket.auth = {token}
@@ -42,20 +42,21 @@ function LoginUser() {
     socket.connect();
 
       const TokenData = jwtDecode(token)
-      console.log(TokenData)
-      console.log(TokenData.userdata.username)
+      // console.log(TokenData)
+      // console.log(TokenData.userdata.username)
 
     localStorage.setItem('senderId',TokenData.userdata.id);
      localStorage.setItem('senderUsername',TokenData.userdata.username);
 
       alert("login sucessfully");
 
-      console.log("login user", response.data);
+      // console.log("login user", response.data);
+
 
       setloginEmail("");
       setloginPassword("");
       
-      navigat('/userlist')
+      navigat('/home')
     } catch (error) {
       console.log(error);
 

@@ -4,7 +4,10 @@ import socket from "../Socket";
 import { useChat } from "../Context/ChatContext";
 import axios from "axios";
 import FormateLastSeen from "../Utlility/FormateLastSeen";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
+import VideocamIcon from '@mui/icons-material/Videocam';
+import CallIcon from '@mui/icons-material/Call';
 function ChatHeader() {
   const [userStatus, setUserStatus] = useState({});
   const [typingStatus, settypingStatus] = useState({});
@@ -79,13 +82,18 @@ function ChatHeader() {
 
   return (
     <div className="">
-      <div className="p-5 md:text-black bg-blue-600">
-        <div className="p-5 md:text-black bg-blue-600">
+      <div className="p-2 md:text-black bg-blue-600">
+        <div className="p-2  md:text-black bg-blue-600">
           <h1 className="w-full text-2xl font-bold uppercase flex justify-between">
             {username}
-            <Link className="text-red-600 text-xl" to={"/logout"}>
-              Logout
-            </Link>
+
+            <div className="text-white flex justify-between  w-32 items-center">
+             <VideocamIcon/>
+             <CallIcon/>
+             <MoreVertIcon/>
+
+            </div>
+         
           </h1>
           <div className="w-72 text-white">
    <p >{getReceiverStatus(receiverId)}</p>
