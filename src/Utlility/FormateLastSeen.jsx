@@ -18,9 +18,9 @@ const FormateLastSeen =(timestamp)=>{
         year:"numeric"
     })
 
-    if(isToday) return `Today at ${time}`;
-    if(isyesterday) return `yesterday at ${time}`;
-    return `on ${DateFormate } at ${time}`
+    if(isToday) return `Today At ${time}`;
+    if(isyesterday) return `Yesterday At ${time}`;
+    return `On ${DateFormate } At ${time}`
 
 }
 export default FormateLastSeen;

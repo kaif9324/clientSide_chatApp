@@ -77,25 +77,25 @@ function ChatHeader() {
 
     return status.online
       ? "🟢 Online"
-      : `Last Seen at ${FormateLastSeen(status.lastSeen)}`;
+      : `Last Seen ${FormateLastSeen(status.lastSeen)}`;
   };
 
   return (
     <div className="">
       <div className="p-2 md:text-black bg-blue-600">
         <div className="p-2  md:text-black bg-blue-600">
-          <h1 className="w-full text-2xl font-bold uppercase flex justify-between">
+          <h1 className="w-full text-xl md:text-3xl font-bold uppercase flex justify-between">
             {username}
 
-            <div className="text-white flex justify-between  w-32 items-center">
-             <VideocamIcon/>
-             <CallIcon/>
-             <MoreVertIcon/>
+            <div className="text-white flex justify-between md:w-36  w-24 items-center">
+             <VideocamIcon  sx={{fontSize:{xs:22,md:30}}}  />
+             <CallIcon    sx={{fontSize:{xs:22,md:30}}}  />
+             <MoreVertIcon  sx={{fontSize:{xs:22,md:30}}}/>
 
             </div>
          
           </h1>
-          <div className="w-72 text-white">
+          <div className="w-72 text-white text-xs md:text-[14px] ">
    <p >{getReceiverStatus(receiverId)}</p>
           </div>
        

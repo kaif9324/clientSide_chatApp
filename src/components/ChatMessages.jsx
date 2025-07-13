@@ -56,9 +56,11 @@ const ChatMessages = () => {
                     )}
                   </>
                 )}
-
-                <p onClick={() => setSelectMsgId(val._id)}>{val.msg}</p>
-                <p className="text-xs">{new Date(val.time).toLocaleTimeString()}</p>
+<div className="w-auto">
+  <p onClick={() => setSelectMsgId(val._id)} className=" text-xs md:text-[15px]">{val.msg}</p>
+                <p className="text-xs  text-end">{new Date(val.time).toLocaleTimeString()}</p>
+</div>
+              
               </div>
             </div>
           );

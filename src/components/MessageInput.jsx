@@ -8,7 +8,6 @@ import SendIcon from '@mui/icons-material/Send';
 
 const MessageInput = () => {
   const { msg, setMsg, sendMessage, senderId, receiverId } = useChat();
-
   const typingtimer = useRef(null);
 
   const handleTyping = (e) => {
@@ -21,19 +20,14 @@ const MessageInput = () => {
       return;
     }
 
-      // clear old time out
-      if(typingtimer.current){
-        clearTimeout(typingtimer.current);
-      }
+    if (typingtimer.current) {
+      clearTimeout(typingtimer.current);
+    }
 
-      // after 2 sec shows stop typing 
-      typingtimer.current = setTimeout(()=>{
-        socket.emit("stop_typing",{senderId, receiverId})
-      },2000);
-
-
+    typingtimer.current = setTimeout(() => {
+      socket.emit("stop_typing", { senderId, receiverId });
+    }, 2000);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,41 +35,44 @@ const MessageInput = () => {
     socket.emit("stop_typing", { senderId, receiverId });
   };
 
-  
-  useEffect(()=>{
-    return ()=>{
-      socket.emit('stop_typing',{ senderId, receiverId })
-    }
-  },[senderId, receiverId ])
+  useEffect(() => {
+    return () => {
+      socket.emit("stop_typing", { senderId, receiverId });
+    };
+  }, [senderId, receiverId]);
 
   return (
-    <div className="w-full sticky bottom-0 p-2">
+    <div className="w-full sticky bottom-0 bg-white px-2 py-2 border-t">
       <form onSubmit={handleSubmit}>
-        <div className=" flex border   rounded-2xl  border-red-900 pt-1 pb-1">
-        
-              <input
+        <div className="flex items-center bg-gray-100 rounded-full px-3 py-2 shadow-sm gap-2 max-w-full overflow-hidden">
+
+          {/* Input */}
+          <input
             onChange={handleTyping}
             value={msg}
-            className=" border-none outline-none  py-1 px-2 border-gray-500 flex-1"
+            className="flex-1 bg-transparent text-sm border-none outline-none placeholder:text-gray-500"
             type="text"
             placeholder="Type a message..."
-            
           />
-            <div className="  flex items-center justify-end w-full border-red-900">
-     <AttachFileIcon className="  w-fit"/>
-     <CameraAltIcon className="mx-4"/>
-     <MicIcon/>
 
-        
-        
+          {/* Action icons */}
+          <button type="button" className="text-gray-600">
+            <AttachFileIcon fontSize="small" />
+          </button>
+          <button type="button" className="text-gray-600">
+            <CameraAltIcon fontSize="small" />
+          </button>
+          <button type="button" className="text-gray-600">
+            <MicIcon fontSize="small" />
+          </button>
 
+          {/* Send button */}
           <button
             type="submit"
-            className="ml-2 mr-2 bg-blue-500  w-9 h-9  rounded-full text-white"
+            className="w-7 h-7 px-1 md:w-8 md:h-8 bg-blue-500 text-white flex items-center justify-center rounded-full"
           >
-            <SendIcon/>
+            <SendIcon fontSize="small" />
           </button>
-            </div>
         </div>
       </form>
     </div>
