@@ -63,7 +63,7 @@ function User_list() {
 
   return (
     <div>
-      <h2 className='text-lg font-bold m-4'>You are: {senderUsername}</h2>
+      <h2 className='text-lg font-bold m-4  text-white'>You are: {senderUsername}</h2>
 
       <div>
         { 
@@ -80,7 +80,7 @@ function User_list() {
                 <img src="" alt="" />
               </div>
 
-              <div className='ml-3'>
+              <div className='ml-3 text-white'>
                 <p>{user.username}</p>
                 <p>{user.email}</p>
                 <p>{user._id}</p>

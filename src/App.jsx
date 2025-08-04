@@ -27,9 +27,8 @@ function App() {
  },[])
   return (
     <>
-   
-
-   <Routes>
+    <div className='bg-red-950   overflow-auto'>
+       <Routes>
     <Route path='/' element={<RegisterUser/>}/>
     <Route path='/home' element={<Home/>}/>
     <Route path='/login' element={<LoginUser/>}/>
@@ -38,6 +37,11 @@ function App() {
     <Route path='/logout' element={<LogOut/>}/>
 
    </Routes>
+
+    </div>
+   
+
+  
   
     </>
   )

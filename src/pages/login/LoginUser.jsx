@@ -74,19 +74,19 @@ function LoginUser() {
  
   };
   return (
-    <div>
+    <div>  
     
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="flex justify-center items-center min-h-screen ">
         <form
           onSubmit={login_handleSubmit}
-          className="bg-white shadow-lg p-6 rounded-xl"
+          className=" bg-transparent  shadow-black  hover:shadow-gray-600  shadow-2xl p-6 rounded-xl"
         >
-          <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center text-white  tracking-[25px] uppercase   border-b border-yellow-300 pb-2">Login</h2>
           <table className="table-auto border-collapse w-full">
             <tbody>
               <tr>
                 <td className="p-2">
-                  <label htmlFor="email" className="font-medium">
+                  <label htmlFor="email" className="font-medium text-white">
                     Email:
                   </label>
                 </td>
@@ -112,7 +112,7 @@ function LoginUser() {
 
               <tr>
                 <td className="p-2">
-                  <label htmlFor="password" className="font-medium">
+                  <label htmlFor="password" className="font-medium text-white">
                     Password:
                   </label>
                 </td>
@@ -136,10 +136,11 @@ function LoginUser() {
                 </td>
               </tr>
               <tr>
+                <td></td>
                 <td colSpan="2" className="text-center p-4">
                   <button
                     type="submit"
-                    className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+                    className="text-white px-6 py-2 ml-1  rounded  shadow-inner     shadow-white hover:shadow-yellow-400"
                   >
                     login
                   </button>
@@ -147,7 +148,7 @@ function LoginUser() {
         
                           <Link  to={'/'}>
                           <button 
-                            className="bg-blue-600 text-white px-6 py-2 ml-1  rounded hover:bg-blue-700"
+                            className=" text-white px-6 py-2 ml-1  rounded  shadow-inner     shadow-white hover:shadow-yellow-400 "
                           >
                             Register
                           </button>

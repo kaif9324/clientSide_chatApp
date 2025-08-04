@@ -42,7 +42,7 @@ const MessageInput = () => {
   }, [senderId, receiverId]);
 
   return (
-    <div className="w-full sticky bottom-0 bg-white px-2 py-2 border-t">
+    <div className="w-full sticky bottom-0  px-2 py-2 ">
       <form onSubmit={handleSubmit}>
         <div className="flex items-center bg-gray-100 rounded-full px-3 py-2 shadow-sm gap-2 max-w-full overflow-hidden">
 
