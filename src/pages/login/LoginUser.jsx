@@ -136,7 +136,7 @@ function LoginUser() {
                 </td>
               </tr>
               <tr>
-                <td></td>
+                
                 <td colSpan="2" className="text-center p-4">
                   <button
                     type="submit"

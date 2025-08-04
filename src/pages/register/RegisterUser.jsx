@@ -116,7 +116,7 @@ function RegisterUser() {
                 </td>
               </tr>
               <tr className=" w-full ">
-                <td></td>
+                
                 <td colSpan="2" className="text-center p-4">
                   <button 
               
